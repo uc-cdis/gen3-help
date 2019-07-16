@@ -7,10 +7,10 @@ cache:
 sudo: required
 env:
   global:
-  - REACT_APP_ENV:production
-  - REACT_APP_COMMONS:stage
-  - SKIP_PREFLIGHT_CHECK:true
-  - CI:false
+  - REACT_APP_ENV: production
+  - REACT_APP_COMMONS: stage
+  - SKIP_PREFLIGHT_CHECK: true
+  - CI: false
 script:
 - npm run build
 - cd build && mkdir ../help-datastage && mv * ../help-datastage/. && mv help-datastage/index.html index.html && cd ..
