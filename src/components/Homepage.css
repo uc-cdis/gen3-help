@@ -1,0 +1,16 @@
+@import '~@gen3/ui-component/dist/css/base.css';
+
+.homepage {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage__login {
+  display: flex;
+}
+
+.homepage__login-button {
+  margin: 10px 50px;
+}
