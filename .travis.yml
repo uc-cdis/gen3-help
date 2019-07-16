@@ -23,4 +23,4 @@ deploy:
   acl: public_read
   on:
     repo: uc-cdis/gen3-help
-    all_branches:true
+    all_branches: true
