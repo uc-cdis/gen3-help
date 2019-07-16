@@ -13,12 +13,13 @@ env:
   - CI: false
 script:
 - npm run build
-- cd build && mkdir ../help-datastage && mv * ../help-datastage/. && mv ../help-datastage datastage && mv datastage/index.html index.html && cd ..
+- cd build && mkdir ../help-datastage && mv * ../help-datastage/. && mv ../help-datastage
+  datastage && mv datastage/index.html index.html && cd ..
 deploy:
   provider: s3
-  access_key_id: AKIA5BG4IXK5E3MWUI7R
+  access_key_id: AKIA5BG4IXK5INXLKXEC
   secret_access_key:
-    secure: ld7E6d5OqoujNvOpMO5DLItDTxxcmwq+8rmHJqLEK2XKsjih3qGj5E3ISCvRL/1yFEjNJ+KZaF61BUGM8kZr7NAm/iyWId27op3KKIS+5EqEEKV3aKTyE0yYn9KAs6EaYHnMD4yeRi1w/49h7yo3gUUXuxjEvhzQ9Wv9HSXH9PUm6zXeQ3wfJPUzd2l6ylnFvjqHQ+8Jth+foXFQZoBIliRO/teF51xuUp+uHKlFJuGjj8LppUeJqTjQTUrHk9IEAGpTgscjOu93fiPBZ9CDnUEb869e95B0ypIWsap5oy3uegSI0Fc2YyHOq/7jJwIRee203rz6NUDgrlOXDTqIeZIHoPztm86qENnYGHlP9g9kLTeESdTvYEw6ykZ4K6sTXB4+O5dXBTRDMwgEwC/MT8w0RuTT9UKEN2xki+9qn18f9lbJ68N9Ur67jwvMEyxyihGzDpuJYYqnV4lg7UzBW83+ygh5i3wHaCbCQH30Xjt4Ent3n/pTfDqF5DmZXvQ/gN1MWGCXlT8TLeHRVbiwNCXllWa+tJG9ZrhQxSv/yULQautqi8PmfajqSBUtYlZ3yDVKYtj2hkIS3SOiL9jrBG9LLG0PMtLSUdWNq4tIGIT2S+5WPUKw40BvptKHWHOY+hYd3yyOY3qJvv56PYxqjaa6qr8xvylwtpV/U8Qnlog=
+    secure: vzOPKTh28CJ/j0RefNTo/lcMSMasb8hehO5kpfRdFwPJfR0ZaCS7u7Nmk1wksQZdAnZn7+Thlv1TtDVrxApq6FmLn7b0XZQcbJ2obbOzYPRjmEh5F/WEZCOazj0eUAQ5LdMV5RdoYh7R0klrsFGV8KiOg3sDA0ExRowF/RvoqCPcdUvJeWoPe1prHLsXWg1F9twjNFmpBXEti/UfYuBu0Jef4Nu075qurg8PVMfHUMGhdnWjiknPkFmN70SgoXPfEoX+CXrljZTquUGmDsj3xvjlo++MGLhQUHKeeQwCcfL5OPl6fMBJlUys2dHTme5+PaLaJEwrHXcdRdywknSPKiP6+/z7g1JgLKBxcoGQ3bk/si+ViEfe2j+mzYPRskKbYgw/ECSfDgnkFWwo/Q69NsgNgmCmQUNoI2PlUM9dwFlAPwVP1docmn+hsQpodsB/VA4gTG5o3qQw3Do/pT3+6phY6sj42+b2RYKBX+3Ppp+aCgJvOtnQqgZWKLypjEldhadNavEjSRbmVgbDTFSAoVWGASs666XH8qcrxMpXzI9eWsl6BsoNdvWuq55LCEv31mB0eaNFUciYJ3P9tBytYHxdmoRnTHla9XPf72F/cBEfoEpa854RtiDB941XIG2Ox0CiZi8xhpbNE29dzFY+4z8vyDe3ekVl7ZZUFzQpahM=
   bucket: help.datastage.io
   local_dir: build
   skip_cleanup: true
