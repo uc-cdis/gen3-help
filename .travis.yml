@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+- stable
+cache:
+  directories:
+  - node_modules
+sudo: required
+env:
+  global:
+  - REACT_APP_ENV: production
+  - REACT_APP_COMMONS: stage
+  - SKIP_PREFLIGHT_CHECK: true
+  - CI: false
+script:
+- npm run build
+- cd build && mkdir ../help-datastage && mv * ../help-datastage/. && mv ../help-datastage datastage && cp -r datastage/* . && cd ..
+deploy:
+  provider: s3
+  access_key_id: AKIA5BG4IXK5INXLKXEC
+  secret_access_key:
+    secure: vzOPKTh28CJ/j0RefNTo/lcMSMasb8hehO5kpfRdFwPJfR0ZaCS7u7Nmk1wksQZdAnZn7+Thlv1TtDVrxApq6FmLn7b0XZQcbJ2obbOzYPRjmEh5F/WEZCOazj0eUAQ5LdMV5RdoYh7R0klrsFGV8KiOg3sDA0ExRowF/RvoqCPcdUvJeWoPe1prHLsXWg1F9twjNFmpBXEti/UfYuBu0Jef4Nu075qurg8PVMfHUMGhdnWjiknPkFmN70SgoXPfEoX+CXrljZTquUGmDsj3xvjlo++MGLhQUHKeeQwCcfL5OPl6fMBJlUys2dHTme5+PaLaJEwrHXcdRdywknSPKiP6+/z7g1JgLKBxcoGQ3bk/si+ViEfe2j+mzYPRskKbYgw/ECSfDgnkFWwo/Q69NsgNgmCmQUNoI2PlUM9dwFlAPwVP1docmn+hsQpodsB/VA4gTG5o3qQw3Do/pT3+6phY6sj42+b2RYKBX+3Ppp+aCgJvOtnQqgZWKLypjEldhadNavEjSRbmVgbDTFSAoVWGASs666XH8qcrxMpXzI9eWsl6BsoNdvWuq55LCEv31mB0eaNFUciYJ3P9tBytYHxdmoRnTHla9XPf72F/cBEfoEpa854RtiDB941XIG2Ox0CiZi8xhpbNE29dzFY+4z8vyDe3ekVl7ZZUFzQpahM=
+  bucket: help.datastage.io
+  local_dir: build
+  skip_cleanup: true
+  acl: public_read
+  on:
+    repo: uc-cdis/gen3-help
+    all_branches: true
