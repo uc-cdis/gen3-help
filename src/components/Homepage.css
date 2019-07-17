@@ -7,10 +7,6 @@
   align-items: center;
 }
 
-.homepage__login {
-  display: flex;
-}
-
-.homepage__login-button {
-  margin: 10px 50px;
+.homepage__help-text {
+  padding: 40px 40px;
 }

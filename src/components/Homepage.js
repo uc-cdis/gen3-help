@@ -4,6 +4,7 @@ import showdown from 'showdown';
 import { commonsConfig } from '../config';
 import gen3Logo from '../images/gen3.png';
 import stageText from '../custom/help-page/stage.md';
+import stageLogo from '../custom/logos/stage.png'
 import './Homepage.css';
 
 class Homepage extends Component {
@@ -15,18 +16,18 @@ class Homepage extends Component {
   }
 
   componentDidMount = () => {
-    const path = this.getCommonsText();
+    const path = this.getCommonsConfig()[0];
     fetch(path).then(res => res.text()).then((text) => {
       this.convertToHTML(text);
     });
   }
 
-  getCommonsText = () => {
+  getCommonsConfig = () => {
     switch (commonsConfig.app) {
       case 'stage':
-        return stageText;
+        return [ stageText, stageLogo ];
       default:
-        return '';
+        return [ '', gen3Logo];
     }
   }
 
@@ -36,12 +37,12 @@ class Homepage extends Component {
   }
 
   render() {
-    const images = { gen3Logo };
+    const logo = this.getCommonsConfig()[1];
+    const title = `${commonsConfig.name} Help`;
     return (
       <div className='homepage'>
-        <Header title='Welcome to Gen3' logoSrc={gen3Logo} />
+        <Header title={title} logoSrc={logo} />
         <div className='homepage__help-text'>
-          <h2>{ commonsConfig.name }</h2>
           <p dangerouslySetInnerHTML={{ __html: this.state.html }} />
         </div>
       </div>
