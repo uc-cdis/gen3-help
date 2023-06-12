@@ -29,5 +29,37 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "react-scripts": {
+      "html-webpack-plugin": {
+        "pretty-error": {
+          "renderkid": {
+            "strip-ansi": {
+              "ansi-regex": "^3.0.1"
+            }
+          }
+        }
+      },
+      "react-dev-utils": {
+        "fork-ts-checker-webpack-plugin": {
+          "babel-code-frame": {
+            "chalk": {
+              "has-ansi": {
+                "ansi-regex": "^3.0.1"
+              },
+              "strip-ansi": {
+                "ansi-regex": "^3.0.1"
+              }
+            }
+          }
+        }
+      },
+      "webpack-dev-server": {
+        "strip-ansi": {
+          "ansi-regex": "^3.0.1"
+        }
+      }
+    }
   }
 }
